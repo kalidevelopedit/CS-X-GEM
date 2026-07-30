@@ -1,0 +1,183 @@
+Below is a developer-oriented reconstruction spec based strictly on the screenshot. The goal is to reproduce the layout, hierarchy, spacing, typography, colours, controls, and responsive feel. For an actual implementation, use your own branding/assets rather than presenting a clone as the real Charles Schwab login.
+
+Overall visual system
+
+The page is a desktop financial-services website with a restrained, institutional style. The canvas is almost entirely white, with a dark blue-grey navigation header, medium/cyan-blue action colours, pale blue informational panels, orange primary acquisition CTAs, dark charcoal typography, and large amounts of whitespace.
+
+The page content is centred inside a roughly 1,245 px-wide container. It feels like a traditional banking/brokerage website rather than a modern rounded-card SaaS interface: corners are mostly square, shadows are minimal, borders are thin, and typography is clean sans-serif.
+
+Use a font stack close to:
+
+font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
+
+The logo itself is not normal UI text; it is a custom brand mark with an italic/script treatment for “charles” and uppercase serif-like “SCHWAB” beneath it.
+
+Header
+
+The header occupies approximately 95–100 px vertically and uses a dark slate/navy background around #344B58.
+
+At the far left is a roughly 98 × 98 px bright cyan-blue logo tile, approximately #009FDA. Inside is the white two-line brand logo.
+
+The header effectively has two navigation levels. The small utility navigation is positioned toward the upper-right and contains:
+
+Find a Branch
+Contact Us ▼
+Chat
+Search                    🔍
+Log In ▼
+
+The text is white/light grey, approximately 13–14 px, medium weight. Small line-style icons precede several items.
+
+The search field is about 200 px wide × 34 px high, with a muted blue-grey fill. Placeholder text reads Search, and a white magnifying-glass icon sits at its right.
+
+The lower/main navigation contains:
+
+Accounts & Products ▼
+Advice ▼
+Pricing ▼
+Why Schwab ▼
+Learn
+
+These are around 15 px, white, medium-weight text with generous horizontal spacing.
+
+At the far right is a rounded orange CTA:
+
+Open an Account
+
+It has a burnt-orange background around #C96A00, white bold text, approximately 132 × 36 px, and an 18 px pill radius.
+
+Authentication strip
+
+Immediately beneath the dark navigation is a white login strip, right aligned.
+
+Its controls appear in one horizontal row:
+
+Accounts Summary ▼    Login ID    Password 👁    Log in
+
+Approximate dimensions:
+
+Account selector: 205 × 33 px
+Login ID:         170 × 33 px
+Password:         170 × 33 px
+Log in button:     62 × 33 px
+
+The fields have white backgrounds and thin grey borders. The active Login ID field has a conspicuous bright blue focus border around #0074D9.
+
+The Log in button is rectangular rather than pill-shaped, using a dark teal/blue fill and white text.
+
+Below the inputs is a secondary helper row:
+
+First Time Users | 🔒 SchwabSafe       ☐ Remember Login ID       Forgot Login ID or Password?
+
+Links use medium blue, roughly #0073A8, at approximately 12–13 px.
+
+Location alert
+
+Below the login area is a large pale-blue notification panel spanning almost the complete content width.
+
+Approximate styling:
+
+background: #EEF7FD;
+border: 1px solid #B5DDF2;
+border-radius: 0;
+min-height: 114px;
+padding: 20px 16px;
+
+Top-left is a blue circular information icon with a white lowercase i.
+
+Beside it:
+
+Location alert
+
+This is dark charcoal, around 17–18 px, regular/medium weight.
+
+A small × close control is positioned at the extreme upper-right of the alert.
+
+Below the title is a blank dropdown approximately 240 × 40 px, white with a grey border. Its right side contains a large black downward triangle.
+
+Immediately beside it is a cyan/blue pill button:
+
+Go
+
+Approximately 66 × 40 px, with a radius near 22 px, bold white text, and a subtle shadow.
+
+Main hero
+
+There is substantial white space between the alert and hero content.
+
+The hero is a two-column layout.
+
+The left column contains:
+
+Manage your wealth, your way.
+
+This is the principal heading. It is very large but relatively light-weight, around 42–46 px, charcoal #333333, with tight line-height. It is not bold.
+
+Below it:
+
+Invest on your own, trade with thinkorswim®, and get full-service wealth
+management all in one place.
+
+Approximately 17–18 px, dark charcoal/black, line-height around 1.5. It wraps naturally over two lines.
+
+Then another orange rounded CTA:
+
+Open an account
+
+Approximately 182 × 47 px, orange fill, white 16 px bold text, radius around 24 px, with a subtle drop shadow.
+
+The right hero column contains the campaign artwork. The visible wording is:
+
+As many ways to
+
+invest
+
+as there are investors.
+
+invest is extremely large, heavy, lowercase typography with a pink/magenta → orange → purple → cyan/blue gradient. There is a small pink-red square positioned above the first letter. The supporting lines are black and bold.
+
+This should be treated as a campaign graphic/brand artwork, rather than trying to recreate the word using ordinary HTML text.
+
+Lower CTA panel
+
+At the bottom of the visible page is a very light grey rectangular section, roughly:
+
+background: #F5F6F7;
+min-height: 130px;
+
+Its content is centred horizontally and vertically:
+
+Take the next step.     Open an account
+
+Take the next step. is approximately 25 px, regular weight, charcoal.
+
+The adjacent button uses the same orange pill treatment as the hero CTA.
+
+Approximate design tokens
+
+A developer could start with:
+
+:root {
+  --nav-bg: #344B58;
+  --brand-blue: #009FDA;
+  --action-blue: #0086B8;
+  --login-blue: #006B88;
+
+  --alert-bg: #EEF7FD;
+  --alert-border: #B7DDF0;
+
+  --cta-orange: #C86A00;
+
+  --text-primary: #2F2F2F;
+  --text-secondary: #444444;
+  --link-blue: #0073A8;
+
+  --border-grey: #A9A9A9;
+  --section-grey: #F5F6F7;
+
+  --content-width: 1245px;
+}
+
+The most important visual characteristics to preserve are square banking-style form fields, restrained borders, minimal shadows, large whitespace, a dark institutional header, blue functional actions, orange conversion CTAs, and lightweight oversized hero typography.
+
+For a safe implementation, keep the layout/style language but replace the Schwab logo, SchwabSafe, Schwab-specific wording, and campaign artwork with your own product identity rather than creating a page that could be mistaken for the genuine financial-service login.

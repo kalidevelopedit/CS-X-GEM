@@ -1,0 +1,31 @@
+The Charles Schwab visual style is best described as premium institutional finance with conservative modernism. It should feel established, secure, precise, mature, and expensive—not trendy, playful, futuristic, or overly “fintech.”
+
+The colour system is built around deep slate/navy blue, bright cyan/Schwab-style blue, crisp white, charcoal grey, cool neutral greys, and restrained orange accents. White should dominate most surfaces, while dark blue-grey creates authority and cyan provides recognisable financial-tech energy. Orange is used sparingly for high-emphasis actions. Avoid neon colours, purple gradients, excessive green, colourful icon backgrounds, and rainbow effects.
+
+Typography should be a neutral professional sans-serif, visually similar to Helvetica/Arial. It should have excellent readability and relatively narrow, controlled proportions. Large headings are generally regular or medium weight rather than extremely bold, giving the design a sophisticated editorial quality. Body text is smaller, darker, and highly legible. Labels and supporting information use compact sizing without becoming tiny. The hierarchy comes primarily from size, spacing and weight, not decorative typography.
+
+The aesthetic should feel structured but not boxed-in. There is generous whitespace between major pieces of information, while related information remains tightly grouped. Everything should align to a disciplined grid. Margins, gutters, baseline alignment and vertical rhythm need to be extremely consistent. Nothing should appear randomly positioned.
+
+Surfaces are predominantly flat white or very light cool grey. Avoid glassmorphism, transparency, blur, glossy surfaces, heavy gradients and oversized floating containers. When separation is required, prefer thin 1px neutral borders, subtle background changes and whitespace over dramatic shadows.
+
+Corners should generally be square or only slightly rounded. Small controls might use approximately 2–4px rounding. A few prominent actions can use a more rounded/pill treatment, but the entire interface should not be covered in rounded rectangles. This contrast helps preserve the traditional brokerage character.
+
+Shadows should be extremely restrained. Most elements should have no visible shadow at all. Where elevation is necessary, use a very soft, low-opacity shadow. Nothing should appear to float dramatically above the page.
+
+Icons should be minimal monochrome outline icons. Think clean SVG line work, approximately 1.5–2px strokes, consistent optical sizing and uncomplicated geometry. Use blue, charcoal, grey or white depending on the background. Avoid emojis, 3D icons, illustrations masquerading as icons, multicoloured symbols, filled cartoon icons and icons inside brightly coloured squares. Lucide/Feather-style iconography is a reasonable approximation of the overall philosophy.
+
+Interactive blue should feel like a serious financial-services blue, not electric/neon blue. Links can use blue without necessarily being surrounded by buttons. Hover states should be subtle—slight colour darkening, underline changes, border changes or very small background transitions.
+
+Animation should be almost invisible. Use approximately 150–220ms ease transitions for hover, focus, dropdown and state changes. No bouncing, elastic animations, glowing buttons, dramatic scaling or unnecessary movement. The interface should communicate stability.
+
+Borders should use cool neutral greys, never harsh black. Dividers should be thin and quiet. Information sections can use extremely pale blue backgrounds to distinguish important contextual information while maintaining the institutional appearance.
+
+The overall density should sit between traditional banking and contemporary fintech. It should have more breathing room than an old banking portal but considerably more structure and information density than an Apple-inspired landing page.
+
+The visual personality you want your developer to understand is:
+
+Established Wall Street brokerage + modern digital wealth management + conservative corporate design + excellent spacing + precise typography + restrained colour + minimal decoration.
+
+It should communicate trust, wealth, stability, security, professionalism and financial authority before the user even reads anything.
+
+The biggest thing to avoid is turning it into a generic modern SaaS interface. No excessive glass, huge radii, giant shadows, glowing gradients, oversized icons, floating widgets, bubbly typography or colourful cards. The sophistication comes from restraint, alignment, whitespace, typography and consistency.

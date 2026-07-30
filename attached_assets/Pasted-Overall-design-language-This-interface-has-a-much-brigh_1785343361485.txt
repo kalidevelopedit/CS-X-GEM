@@ -1,0 +1,654 @@
+Overall design language
+
+This interface has a much brighter, cleaner retail-banking aesthetic than the previous screenshot.
+
+The core visual formula is:
+
+white canvas + Citi-style royal blue + pale blue-grey navigation + charcoal typography + thin grey borders + moderately rounded cards + subtle shadows.
+
+The page is approximately 1,440 px wide in the browser viewport. Content nearly fills the viewport horizontally, with approximately 30–65 px outer margins.
+
+There is very little dark colouring. Blue is the dominant interactive colour.
+
+Colour palette
+
+A close starting palette would be:
+
+:root {
+  --primary-blue: #056DAE;
+  --action-blue: #087CB9;
+  --deep-blue: #003B8F;
+  --link-blue: #005EA8;
+
+  --nav-bg: #F0F6F9;
+  --light-blue-bg: #EEF6FC;
+  --passwordless-bg: #EDF5FA;
+
+  --text-primary: #333333;
+  --text-secondary: #4A4A4A;
+  --text-muted: #5E6469;
+
+  --border: #C9C9C9;
+  --border-light: #DADDE0;
+
+  --white: #FFFFFF;
+  --page-bg: #FFFFFF;
+
+  --card-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.16);
+}
+
+The strongest brand blue is used selectively. Most of the interface remains white.
+
+Typography
+
+The screenshot uses a clean humanist sans-serif family. A reasonable approximation is:
+
+font-family:
+  Arial,
+  Helvetica,
+  "Helvetica Neue",
+  sans-serif;
+
+If you want something slightly closer in character, use:
+
+font-family:
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
+
+The important characteristic is not geometric SaaS typography. Avoid fonts such as Poppins or Montserrat.
+
+Body copy should feel conventional and highly readable.
+
+Approximate hierarchy
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.body-copy {
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.small-link {
+  font-size: 14px;
+}
+
+Unlike the previous screenshot's relatively light hero typography, this design uses a much heavier bold headline.
+
+1. Top institutional header
+
+The first website section is white and approximately 90–95 px tall.
+
+The left side contains the brand mark followed by an FDIC notice.
+
+Visually:
+
+[brand]     FDIC   FDIC-Insured – Backed by the full faith and credit of the U.S. Government
+                   Citibank, N.A.
+
+The logo is approximately 55–65 px wide.
+
+The FDIC mark uses dark navy, bold uppercase lettering.
+
+The accompanying regulatory sentence is significantly smaller:
+
+font-size: 12px;
+font-style: italic;
+color: #333;
+
+Citibank, N.A. appears underneath at approximately 9–10 px.
+
+Right-side utilities
+
+At the far right are two vertically arranged icon/text utilities:
+
+⌖                    ◎
+ATM / BRANCH          ESPAÑOL
+
+Each consists of a thin dark-grey line icon above uppercase text.
+
+Approximately:
+
+font-size: 11px;
+font-weight: 400;
+color: #555;
+
+There is considerable whitespace between the regulatory information and these controls.
+
+2. Main navigation bar
+
+The navigation bar is around 48 px high.
+
+Background:
+
+background: #F1F6F8;
+
+It has a subtle shadow underneath:
+
+box-shadow: 0 2px 7px rgba(0,0,0,.10);
+
+The navigation reads:
+
+Credit Cards     Banking     Lending     Investing     Wealth Management     Open an Account  >        How can we help?
+
+Most links are dark royal/navy blue:
+
+color: #003B8F;
+font-weight: 600;
+
+Spacing between menu items is approximately 35–45 px.
+
+Active navigation state
+
+Wealth Management is selected.
+
+It uses a dark neutral grey rectangle:
+
+background: #666B6E;
+color: #FFFFFF;
+padding: 15px 20px;
+
+There is essentially no visible radius.
+
+This produces a strong tab-like selected state.
+
+Open an Account
+
+The next navigation item reads:
+
+Open an Account  >
+
+There is no filled button. It is simply bold blue text followed by a blue chevron.
+
+Help/search area
+
+At the far right:
+
+⌕  How can we help?
+
+There is a large thin blue search icon followed by bold dark-blue text.
+
+No search input is initially visible.
+
+3. Dropdown mega-menu
+
+The screenshot captures the Wealth Management dropdown in its open state.
+
+It is a white floating panel approximately 410 px wide × 135 px high.
+
+Styling:
+
+background: #FFFFFF;
+border-radius: 0 0 6px 6px;
+
+box-shadow:
+  0 4px 9px rgba(0,0,0,.18);
+
+It begins immediately underneath the selected navigation item.
+
+The menu is divided into two columns.
+
+Left column
+Citigold
+
+Citigold® Private Client
+
+Citi Priority
+
+Blue text, approximately:
+
+font-size: 16px;
+font-weight: 400;
+color: #003B8F;
+
+Rows have generous vertical spacing of approximately 20 px.
+
+Right column
+
+At the top:
+
+QUICK LINKS
+
+Small uppercase grey lettering:
+
+font-size: 12px;
+letter-spacing: .5px;
+color: #555;
+
+Then:
+
+[location icon]   Find a Wealth Team
+
+[person icon]     Planning Tools
+
+Icons use thin dark-grey strokes while links are blue.
+
+4. Hero section
+
+The hero begins immediately beneath navigation.
+
+The background is primarily white / extremely pale grey, with very subtle abstract diagonal geometric shapes.
+
+Think:
+
+background:
+  linear-gradient(... extremely subtle whites ...);
+
+Do not make those background lines prominent.
+
+The hero occupies roughly 400 px vertically.
+
+It has three conceptual zones:
+
+Left: marketing copy
+Centre: lifestyle photograph
+Right: login card
+
+5. Hero marketing content
+
+The left content begins approximately 65 px from the viewport edge and about 85 px below the navigation.
+
+Small eyebrow:
+
+CITI® CHECKING ACCOUNTS
+
+Styling:
+
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 2.5px;
+color: #404040;
+
+Then the headline:
+
+Open. Deposit. Earn
+$325.
+
+It uses very heavy charcoal typography.
+
+Approximately:
+
+font-size: 43px;
+line-height: 1.08;
+font-weight: 700;
+color: #333333;
+
+The $325. occupies its own line and has equal visual emphasis.
+
+Hero supporting text
+
+Underneath:
+
+Earn a bonus when you open a Regular Checking account
+with Enhanced Direct Deposits & required activities.
+
+Approximately:
+
+font-size: 16px;
+line-height: 1.5;
+color: #444;
+
+Maximum width is around 420 px.
+
+Learn More CTA
+
+Below the paragraph:
+
+Learn More
+
+The button is a strong medium blue rectangle.
+
+Approximately:
+
+width: 205px;
+height: 52px;
+
+background: #087CB9;
+color: white;
+
+border: 0;
+border-radius: 7px;
+
+font-size: 16px;
+font-weight: 700;
+
+Unlike the Schwab screenshot, the primary buttons here are rounded rectangles, not pills.
+
+6. Lifestyle imagery
+
+The centre-right hero contains a large photographic cutout of:
+
+an adult
+a child
+a large light-coloured dog
+a tablet/device
+a small cup
+
+The image blends into the white hero rather than sitting inside a visible card.
+
+The subjects are approximately centred around the lower-middle of the hero and overlap visually with the space between marketing copy and the login card.
+
+For your own implementation, use an original/licensed lifestyle image with a similar warm family + financial wellbeing composition rather than copying the exact campaign photograph.
+
+7. Login card
+
+The login panel is the most prominent UI component.
+
+It sits on the right side of the hero and floats above the background.
+
+Approximate size:
+
+420 px wide
+340 px high
+
+Styling:
+
+.login-card {
+  background: #FFFFFF;
+
+  border: 1px solid #D2D2D2;
+  border-radius: 17px;
+
+  box-shadow:
+    0 3px 13px rgba(0,0,0,.18);
+
+  overflow: hidden;
+}
+
+This 17-ish px radius is important. It distinguishes the card from the relatively square navigation.
+
+Form labels
+
+Top row:
+
+User ID                       Password
+
+Labels are dark charcoal:
+
+font-size: 16px;
+font-weight: 600;
+Login inputs
+
+Two inputs appear side-by-side.
+
+User ID is roughly 190 px wide.
+
+Password is roughly the same overall width, but includes a dedicated eye-icon section.
+
+Input styling:
+
+height: 53px;
+
+background: #FFFFFF;
+border: 1px solid #8D8D8D;
+border-radius: 8px;
+
+font-size: 16px;
+padding: 0 12px;
+
+The password field has an eye control separated by a vertical border.
+
+Conceptually:
+
+┌───────────────────────┬──────┐
+│ Password              │  👁   │
+└───────────────────────┴──────┘
+
+The eye icon is thin blue line art.
+
+Remember User ID
+
+Below the fields:
+
+□    Remember User ID
+
+The checkbox is unusually large—approximately 23 × 23 px.
+
+It has:
+
+border: 2px solid #0081C6;
+border-radius: 3px;
+
+Text is approximately 16 px, charcoal.
+
+There is about 14 px between checkbox and text.
+
+Sign On button
+
+The main authentication CTA reads:
+
+Sign On
+
+It spans almost the entire card width.
+
+Approximately:
+
+width: 100%;
+height: 41px;
+
+background: #087AB8;
+color: #FFFFFF;
+
+border: none;
+border-radius: 7px;
+
+font-size: 16px;
+font-weight: 700;
+
+There is generous spacing above and below it.
+
+Login utility links
+
+Under the button:
+
+Register / Activate                         Forgot User ID or Password
+
+The links themselves are underlined blue.
+
+The phrase Forgot and connector or are charcoal.
+
+Something similar to:
+
+color: #006FAE;
+text-decoration: underline;
+font-size: 14px;
+Passwordless section
+
+The bottom portion of the login card has a pale blue-grey background.
+
+Approximately:
+
+background: #EEF5FA;
+height: 58px;
+
+Centered within:
+
+[QR-style icon]  Passwordless Sign On
+
+Both icon and text use the primary blue.
+
+Text:
+
+font-size: 16px;
+font-weight: 700;
+color: #006EAD;
+8. Product shortcut bar
+
+Overlapping or immediately following the hero is a large white rounded container.
+
+Approximate dimensions:
+
+1300 px wide
+100 px high
+
+Styling:
+
+background: #FFFFFF;
+border: 1px solid #D7D7D7;
+border-radius: 17px;
+
+No major shadow.
+
+It contains six evenly distributed shortcuts:
+
+Credit Cards
+Checking Accounts
+Mortgage
+Personal Loans
+Investing Options
+Small Business
+
+Each shortcut uses a circular icon container above the text.
+
+Circle:
+
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: #F0F6FB;
+
+Inside is a thin blue line icon.
+
+Labels:
+
+font-size: 14px;
+font-weight: 700;
+color: #006DAA;
+
+The six items should use equal-width flex/grid columns.
+
+9. Lower product cards
+
+At the bottom of the screenshot, three large cards begin.
+
+They are arranged as a three-column grid with approximately 25 px gaps.
+
+Cards have:
+
+background: white;
+border: 1px solid #D5D5D5;
+border-radius: 8px;
+padding: 16px;
+
+Visible headings include:
+
+CITI® SAVINGS ACCOUNTS
+CITI® PERSONAL LOAN
+CITI® CREDIT CARDS
+
+These labels are approximately:
+
+font-size: 12px;
+font-weight: 500;
+color: #444;
+
+Large photographic/product artwork follows immediately underneath.
+
+Spacing system
+
+A developer could build the interface around an 8 px spacing system:
+
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-5: 24px;
+--space-6: 32px;
+--space-7: 48px;
+--space-8: 64px;
+
+Forms generally use 8–16 px internal gaps.
+
+Navigation uses 30–45 px horizontal separation.
+
+Major page regions use 40–70 px spacing.
+
+Border-radius hierarchy
+
+This screenshot uses radius deliberately:
+
+Navigation tabs:        0 px
+Mega menu:              ~0–6 px
+Text inputs:            ~8 px
+Primary buttons:        ~7 px
+Login card:             ~17 px
+Shortcut container:     ~17 px
+Product cards:          ~8 px
+Circular icons:         50%
+
+So don't apply one universal radius everywhere.
+
+Shadow hierarchy
+
+Keep shadows subtle.
+
+The navigation:
+
+box-shadow: 0 2px 6px rgba(0,0,0,.08);
+
+Dropdown:
+
+box-shadow: 0 4px 10px rgba(0,0,0,.16);
+
+Login card:
+
+box-shadow: 0 3px 14px rgba(0,0,0,.18);
+
+Normal content cards should mostly rely on their 1 px border rather than shadows.
+
+Developer summary
+
+If recreating the visual language, the most important recipe is:
+
+WHITE BACKGROUND
+        +
+DEEP BANKING BLUE
+        +
+PALE BLUE-GREY NAVIGATION
+        +
+CHARCOAL TEXT
+        +
+HEAVY HERO HEADLINE
+        +
+BLUE ROUNDED-RECTANGLE CTAs
+        +
+LARGE WHITE FLOATING LOGIN CARD
+        +
+8px ROUNDED INPUTS
+        +
+17px MAJOR CARD RADIUS
+        +
+THIN GREY BORDERS
+        +
+SUBTLE SHADOWS
+        +
+PALE CIRCULAR LINE-ICON BACKGROUNDS
+        +
+GENEROUS WHITE SPACE
