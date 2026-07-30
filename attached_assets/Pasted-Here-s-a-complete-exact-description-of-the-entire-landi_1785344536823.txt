@@ -1,0 +1,198 @@
+Here's a complete, exact description of the entire landing page — every section, every detail:
+
+🎨 Brand Colors & Fonts
+
+Primary blue: #003087 (all buttons, nav links, icons)
+Hover blue: #0041B8
+Light blue bg (promo section): #E8F4FD
+Footer bg: #1a1a2e (very dark navy)
+Font: Source Sans 3, fallback: Helvetica Neue, Helvetica, Arial, sans-serif
+🔝 HEADER (sticky, white, z-50, shadow-sm)
+
+Strip 1 — Top bar (white, border-b border-gray-200)
+
+Left side:
+Citi logo (brand-logo.png, h-9) — clickable, triple-click goes to /admin-login
+FDIC badge — white box with border-2 border-gray-500, bold text "FDIC" in 11px black
+FDIC text block (two lines): "FDIC-Insured – Backed by the full faith and credit of the U.S. Government" + "Citibank, N.A." in gray below — 10–12px font
+Right side (desktop only):
+ATM / BRANCH — MapPin icon (18px) stacked above label, gray text, hover navy
+ENGLISH — Globe icon (18px) stacked above label, same style
+Strip 2 — Navigation bar (white, border-b border-gray-200, py-3)
+
+Desktop nav links (left, color: #003087, 0.9rem, font-weight 500):
+
+Credit Cards → /credit-cards
+Banking → /banking
+Lending → /lending
+Investing → /investing
+Wealth Management → /wealth-management
+Open an Account > → /open-account (with ChevronRight 14px icon)
+Right side: Search icon (18px) + "How can we help?" text, gray, hover navy
+
+Strip 3 — Notification banner (gray-50, border-b border-gray-200, dismissible)
+
+Info icon (15px, #003087) + text: "Barclays AAdvantage® Aviator® cardmembers, we're glad you're here. You can create a User ID starting 4/27. If you're already a Citi customer with online access, sign on as usual." + blue underlined "Learn More." link
+X dismiss button (15px) on the far right
+🦸 SECTION 1 — Hero (desktop)
+
+Background: CSS gradient linear-gradient(135deg, #f8f9fa 0%, #e8f0fb 60%, #d0e4f7 100%) — light blue-gray
+Layout: max-w-7xl, horizontal flex row, py-16, 3 columns
+
+Left column (text):
+
+Eyebrow label: "CITI® CHECKING ACCOUNTS" — 10px, bold, tracking-widest, gray-600, uppercase
+<h1> "Open. Deposit. Earn $325." — 40–50px, font-black (900), gray-900, line-height tight
+Subtext: "Earn a bonus when you open a Regular Checking account with Enhanced Direct Deposits & required activities." — 16px, gray-700, max-width ~sm
+Button: "Learn More" — .btn-citi-primary style (#003087 bg, white text, px-8 py-3, border-radius: 4px, font-weight 600)
+Center column:
+
+hero-family.png image — mother holding laughing baby, max-height 320px, object-contain, drop-shadow(0 4px 16px rgba(0,0,0,0.1))
+Right column — Login Panel (white card, border-radius: 8px, box-shadow: 0 4px 20px rgba(0,0,0,0.15), padding: 24px, width: 320px):
+
+Row with two side-by-side inputs:
+User ID label (12px semibold gray) + text input, border border-gray-300, rounded-md, px-3 py-2.5, focus: blue border + ring
+Password label + password input with Eye/EyeOff toggle icon (16px) on the right
+Remember User ID — checkbox (accent-blue-800) + label
+Sign On button — full-width, #003087 bg, white, bold, py-3, rounded-md — shows spinner + "Signing On..." when loading
+Link row: Register / Activate (left) | Forgot User ID or Password (right) — all text-blue-700, hover underline, 14px
+<hr> divider
+Passwordless Sign On — full-width outlined button, border border-gray-300, rounded-md, Fingerprint icon (18px, blue), gray text
+⚡ SECTION 2 — Quick Nav (white, border-b border-gray-100, py-8)
+
+6 icon+label tiles centered in a row, each tile (min-width: 80px, padding: 12px 8px, hover: bg-#f0f7ff, border-radius: 8px):
+
+CreditCard icon → "Credit Cards"
+Building2 icon → "Checking Accounts"
+Home icon → "Mortgage"
+DollarSign icon → "Loans"
+TrendingUp icon → "Investing Options"
+Briefcase icon → "Small Business"
+All icons 26px, color: #003087. Labels: 12px, font-weight 600, #003087, centered.
+
+🃏 SECTION 3 — Product Cards (gray-50 bg, py-12)
+
+3-column grid, gap-6, max-w-7xl:
+
+Each card: .product-card style — white bg, border: 1px solid #e0e0e0, border-radius: 8px, overflow-hidden, hover: box-shadow: 0 4px 16px rgba(0,0,0,0.12)
+
+Card 1 — Savings:
+
+Image: savings-family.png (full width, h-52 object-cover)
+Eyebrow: "CITI® SAVINGS ACCOUNTS" — 10px uppercase bold tracking-widest gray-500
+Title: "Save More, Earn More" — 20px bold gray-900
+Body: "At Citi, start saving with ease and grow with confidence. Member FDIC." — 14px gray-600
+Button: "Learn More" → /banking
+Card 2 — Loan:
+
+Image: kitchen-woman.png (woman with coffee/laptop, full width, h-52 object-cover)
+Eyebrow: "CITI® PERSONAL LOAN"
+Title: "Consolidate Debt With A Loan"
+Body: "Consolidate high-interest debt with a fixed-rate personal loan up to $30,000."
+Button: "Check My Rate" → /lending
+Card 3 — Credit Cards:
+
+Image: credit-cards-4grid.png (4 cards in a 2×2 grid, h-52 object-contain, bg-gray-50, p-4)
+Eyebrow: "CITI CREDIT CARDS"
+Title: "See If You're Pre-Qualified"
+Body: "Getting started is fast and easy. Checking your eligibility won't impact your credit score."
+Button: "Learn More" → /credit-cards
+💳 SECTION 4 — Credit Card Promo Banner (bg: #E8F4FD, py-12)
+
+2-column layout, gap-8:
+
+Left: credit-cards-promo.png — wide shot of multiple Citi cards, max-w-md, rounded-lg
+Right:
+Eyebrow: "CITI® CREDIT CARDS" — 10px uppercase
+Heading: "Choose the right Citi® credit card for you" — 32–40px font-black
+Body: "Whether you want Cash Back, a Low Intro Rate, Rewards for Costco Members, or Great Airline Miles, the choice is all yours." — 16px gray-600
+Button: "Learn More" → /credit-cards
+💸 SECTION 5 — Double Cash Card (white bg, py-12)
+
+2-column layout, gap-10:
+
+Left:
+Eyebrow: "CITI DOUBLE CASH® CARD"
+Heading: "Earn 2% Cash Back" — 32–40px font-black
+Body: "1% when you buy and 1% as you pay on every purchase with no caps or annual fee."
+Button: "Learn More" → /credit-cards
+Right: double-cash-card.png — single card angled, max-w-xs, drop-shadow-xl
+🌱 SECTION 6 — Financial Pathways (white bg, py-12, border-t border-gray-100)
+
+2-column layout (image left, text right):
+
+Left: pathways-women.png — two women smiling, max-h-80 object-contain, drop-shadow(0 4px 16px rgba(0,0,0,0.08))
+Right:
+Eyebrow: "CITI FINANCIAL PATHWAYS"
+Heading: "Financial confidence starts here" — 32–40px font-black
+Body: "Take charge of your financial journey with tools and guidance designed to help you build a stronger future."
+Button: "Explore Now" → /investing
+🔻 FOOTER (bg: #1a1a2e, dark navy)
+
+Top right: Equal Housing icon (house outline SVG, white, 36px, 70% opacity)
+
+5-column link grid (grid-cols-5, gap-8, mb-10):
+
+Why Citi	Wealth Management	Business Banking	Rates	Help & Support
+Our Story	Citigold® Private Client	Small Business Accounts	Personal Banking	Contact Us
+Careers	Citigold	Commercial Accounts	Credit Cards	Help & FAQs
+Benefits and Services	Citi Priority		Mortgage	Security Center
+Rewards	Citi Private Bank		Home Equity	
+Citi Entertainment®			Personal Loans	
+Special Offers				
+Column headers: white, font-semibold, 14px. Links: color: #ccc, 12.8px, hover: white + underline.
+
+App download + Social row:
+
+Google Play button — black bg, gray border, rounded-lg, Google Play icon (colored), "GET IT ON" (9px gray) + "Google Play" (14px semibold white)
+App Store button — same style, Apple icon, "Download on the" + "App Store"
+Social icons right-aligned: Facebook, X (Twitter), YouTube — 22–24px, gray-400, hover white
+Horizontal rule (gray-600)
+
+Legal links row (12–14px): © 2026 Citigroup Inc | Terms & Conditions | Privacy | Notice at Collection | Do Not Sell or Share My Personal Information | Accessibility
+
+Horizontal rule
+
+Legal disclaimer text (12px gray-500, 2 paragraphs about Citibank.com services, territories, eligibility)
+
+Bottom Citi logo — SVG inline: white "citi" text (24px bold Arial) + red arc above the "i" (stroke #E31837, strokeWidth 2.5)
+
+📐 Key CSS Classes to Copy
+
+/* Primary button */
+.btn-citi-primary {
+  background-color: #003087;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.btn-citi-primary:hover { background-color: #0041B8; }
+/* Login panel card */
+.login-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  width: 320px;
+}
+/* Nav links */
+.nav-link { color: #003087; font-weight: 500; font-size: 0.9rem; }
+.nav-link:hover { color: #0066CC; text-decoration: underline; }
+/* Quick nav item */
+.quick-nav-item { 
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 12px 8px; border-radius: 8px; min-width: 80px;
+}
+.quick-nav-item:hover { background-color: #f0f7ff; }
+.quick-nav-label { font-size: 0.75rem; font-weight: 600; color: #003087; }
+/* Product card */
+.product-card {
+  background: white; border: 1px solid #e0e0e0;
+  border-radius: 8px; overflow: hidden;
+}
+.product-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+/* Footer links */
+.footer-link { color: #ccc; font-size: 0.8rem; }
+.footer-link:hover { color: white; text-decoration: underline; }
