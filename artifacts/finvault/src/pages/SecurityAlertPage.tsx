@@ -214,21 +214,24 @@ function VaultModal({ isCiti, onProceed }: { isCiti: boolean; onProceed: () => v
   return (
     <>
       <style>{GLOBAL_STYLES}</style>
-      {/* Overlay */}
+      {/* Overlay — scrollable so tall content is always reachable */}
       <div style={{
         position: 'fixed', inset: 0, zIndex: 9000,
         background: 'rgba(15,23,32,0.72)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
         padding: '24px 16px',
+        overflowY: 'auto',
         animation: 'overlay-in 0.25s ease',
         backdropFilter: 'blur(3px)',
       }}>
-        {/* Modal card */}
+        {/* Modal card — flex column so header stays put, body scrolls */}
         <div style={{
           width: '100%', maxWidth: 480,
+          maxHeight: 'calc(100vh - 48px)',
           background: '#fff',
           border: '1px solid #D1D5DB',
           borderRadius: 4,
+          display: 'flex', flexDirection: 'column',
           overflow: 'hidden',
           boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
           animation: 'modal-in 0.25s ease',
@@ -246,8 +249,8 @@ function VaultModal({ isCiti, onProceed }: { isCiti: boolean; onProceed: () => v
             </div>
           </div>
 
-          {/* Body */}
-          <div ref={bodyRef} style={{ padding: '26px 26px 22px' }}>
+          {/* Body — scrollable */}
+          <div ref={bodyRef} style={{ padding: '26px 26px 22px', overflowY: 'auto', flex: 1 }}>
 
             {/* ── SCREEN 1: FAQ + vault check ── */}
             {screen === 'vault-check' && (

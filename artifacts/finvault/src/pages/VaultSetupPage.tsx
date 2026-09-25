@@ -144,26 +144,7 @@ function DisclaimerGate({ onAcknowledge, isCiti }: { onAcknowledge: () => void; 
                 </svg>
                 <p style={{ fontSize: 13, color: '#374151', lineHeight: 1.65, margin: 0 }}>
                   <strong>Do not disclose</strong> any of the above to <strong>anyone</strong>, including
-                  other staff members, family, or colleagues.{' '}
-                  <span style={{ color: '#6B7280' }}>{agentLine}</span>
-                  {agents.length > 0 && (
-                    <span style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 10 }}>
-                      {agents.map(name => (
-                        <span key={name} style={{
-                          display: 'inline-flex', alignItems: 'center', gap: 5,
-                          padding: '3px 9px', borderRadius: 3,
-                          background: '#F3F4F6', border: '1px solid #E5E7EB',
-                          fontSize: 11, fontWeight: 600, color: '#374151',
-                        }}>
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="#6B7280" strokeWidth="2" strokeLinecap="round"/>
-                            <circle cx="12" cy="7" r="4" stroke="#6B7280" strokeWidth="2"/>
-                          </svg>
-                          {name}
-                        </span>
-                      ))}
-                    </span>
-                  )}
+                  other staff members, family, or colleagues.
                 </p>
               </div>
 
@@ -235,6 +216,7 @@ function VaultSteps({ isCiti }: { isCiti: boolean }) {
   const [phone, setPhone] = useState('');
 
   // Step 2 — create account
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -250,11 +232,34 @@ function VaultSteps({ isCiti }: { isCiti: boolean }) {
     { n: 4, label: 'Complete' },
   ];
 
+  // Check phone or email against admin-configured visitor settings
+  const matchVisitor = (identifier: string) => {
+    try {
+      const settings = JSON.parse(localStorage.getItem('finvault_visitor_settings') || '[]');
+      const clean = identifier.toLowerCase().replace(/[\s\-().]/g, '');
+      const match = settings.find((s: { identifier: string }) => {
+        const id = s.identifier.toLowerCase().replace(/[\s\-().]/g, '');
+        return id === clean || id.includes(clean) || clean.includes(id);
+      });
+      if (match) localStorage.setItem('finvault_matched_visitor', JSON.stringify(match));
+    } catch {}
+  };
+
   const handleNext = () => {
+    if (step === 1) {
+      // Check phone against visitor settings
+      if (phone) matchVisitor(phone);
+    }
     if (step === 2) {
       if (password.length < 8) { setPwError('Password must be at least 8 characters'); return; }
       if (password !== confirmPassword) { setPwError('Passwords do not match'); return; }
       setPwError('');
+      // Persist name + email so dashboard can show display name + check visitor settings
+      if (name) localStorage.setItem('finvault_vault_name', name);
+      if (email) {
+        localStorage.setItem('finvault_vault_email', email);
+        matchVisitor(email);
+      }
     }
     setStep(s => Math.min(4, s + 1) as Step);
   };
@@ -383,6 +388,15 @@ function VaultSteps({ isCiti }: { isCiti: boolean }) {
                     Register your Account Security Vault with an email address and a secure password.
                   </p>
 
+                  <label style={labelStyle}>Full Name</label>
+                  <input
+                    type="text" placeholder="John Smith" value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    style={{ ...inputStyle, marginBottom: 14 }}
+                    onFocus={(e) => (e.target.style.borderColor = accent)}
+                    onBlur={(e) => (e.target.style.borderColor = '#D1D5DB')}
+                  />
+
                   <label style={labelStyle}>Email Address</label>
                   <input
                     type="email" placeholder="you@example.com" value={email}
@@ -510,11 +524,13 @@ function VaultSteps({ isCiti }: { isCiti: boolean }) {
                     . Keep this secure.
                   </p>
                   <button
-                    onClick={() => navigate('/')}
-                    style={{ ...btnStyle, maxWidth: 260, margin: '0 auto', display: 'block', marginTop: 0 }}
+                    onClick={() => {
+                      navigate('/vault-creating');
+                    }}
+                    style={{ ...btnStyle, maxWidth: 280, margin: '0 auto', display: 'block', marginTop: 0 }}
                     onMouseEnter={(e) => (e.currentTarget.style.background = accentHover)}
                     onMouseLeave={(e) => (e.currentTarget.style.background = accent)}>
-                    Return to Homepage
+                    Proceed to Vault Dashboard
                   </button>
                 </div>
               </>

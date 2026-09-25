@@ -1,0 +1,523 @@
+The actual dashboard shown is a desktop investment positions/account-summary interface. Visually, it is dense and utilitarian: white panels, extremely light grey backgrounds, thin grey separators, charcoal typography, teal information accents, blue controls, and muted red/green financial values. There are almost no decorative effects.
+
+I can describe what is visibly present in detail. For the blurred portions, I can explain what kind of information the layout appears to contain, but I can't reliably recover the exact hidden text.
+
+Overall dashboard structure
+
+The dashboard uses a nearly full-width layout. The underlying workspace is a very pale cool grey, approximately:
+
+background: #F3F4F4;
+
+Major content containers are white with approximately:
+
+background: #FFFFFF;
+border: 1px solid #D2D5D6;
+border-radius: 0px;
+box-shadow: none;
+
+The interface uses approximately 20–22 px horizontal page margins.
+
+The visible hierarchy is essentially:
+
+DISPLAY OPTIONS
+
+┌─────────────────────────────────────────────────────────────┐
+│ Account Summary                                             │
+│                                                             │
+│ metric   metric   metric   metric   metric   metric         │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ Account / positions section                       ⚙ Settings│
+│                                                             │
+│ Security information │ Quantity │ Price │ Change │ Value... │
+│ ─────────────────────────────────────────────────────────── │
+│ Position                                                ≡   │
+│ Position                                                ≡   │
+│ ─────────────────────────────────────────────────────────── │
+│                                    TOTALS                   │
+│                                                             │
+│ Cash / other holdings                                      │
+└─────────────────────────────────────────────────────────────┘
+
+MARKET / QUOTE STRIP
+
+So this is much closer to a financial data table application than a card-based dashboard.
+
+Display controls
+
+At the very top of the application content is a narrow light-grey strip.
+
+It contains:
+
+☑ Group by Security Type
+☑ Condensed Table View
+
+They're arranged horizontally.
+
+There is approximately 20 px left padding, with around 20–25 px between the two options.
+
+Checkboxes are tiny—approximately 13 × 13 px—and filled medium blue when selected, with a white check.
+
+Labels are roughly:
+
+font-size: 13px;
+font-weight: 400;
+color: #4A4A4A;
+
+The control area itself is approximately 40–45 px tall.
+
+Account Summary container
+
+Immediately below is a large white rectangular panel.
+
+It occupies almost the entire available width.
+
+Approximately:
+
+margin: 0 20px 12px;
+padding: 22px 14px 28px;
+
+background: #fff;
+border: 1px solid #D1D4D5;
+
+There is essentially no corner rounding.
+
+This is important to the aesthetic: these aren't modern floating cards.
+
+Account Summary heading
+
+Top-left:
+
+Account Summary
+
+Approximately:
+
+font-size: 23px;
+font-weight: 400;
+line-height: 1.2;
+color: #333;
+
+There is around 10 px left padding from the panel's internal boundary.
+
+Below the heading is roughly 25–30 px of whitespace before the financial metrics.
+
+Summary metrics
+
+There are six financial metric groups distributed horizontally.
+
+The visible groups are:
+
+Total Accounts Value
+$7,339.68
+Total Cash &
+Cash Invest
+$45.06
+Total Market Value
+$7,294.62
+Total Day Change ⓘ
+-$16.10
+(-0.22%)
+Total Cost Basis
+$7,300.00
+Total Gain/Loss* ⓘ
+-$5.38
+(-0.07%)
+
+The labels are subdued:
+
+font-size: 13px;
+font-weight: 400;
+color: #666;
+
+The primary numbers are significantly larger:
+
+font-size: 20px;
+font-weight: 400;
+color: #111;
+
+Negative values use a muted financial red:
+
+color: #9B2535;
+
+The percentage underneath is approximately 12–13 px and uses the same muted red.
+
+Metric spacing
+
+Each metric block is approximately 145–180 px wide.
+
+There are thin vertical dividers between several groups:
+
+border-left: 1px solid #E0E1E2;
+
+These separators are approximately 55–65 px tall.
+
+This gives the summary a very spreadsheet-like visual rhythm.
+
+Information icons
+
+Several labels have a tiny circular information icon.
+
+They appear as approximately 13 px teal circles containing a white i.
+
+Approximate colour:
+
+background: #00889B;
+color: white;
+
+They're positioned almost immediately after the associated label.
+
+These are intentionally tiny—they don't look like large modern icon buttons.
+
+Main positions container
+
+The second large white panel begins roughly 12 px below the Account Summary panel.
+
+Again:
+
+margin: 0 20px;
+background: #fff;
+border: 1px solid #D1D4D5;
+border-radius: 0;
+
+It is substantially taller because it contains the investment table.
+
+Blurred upper-left section
+
+The upper-left portion is blurred in the supplied screenshot.
+
+The exact text cannot be determined from the image.
+
+From its position and the structure of the interface, however, this appears to be an account/security identification area associated with the positions being displayed.
+
+There appears to be a larger blurred heading near the top followed by additional identifying information in the left column.
+
+I would represent this generically as:
+
+[Account / portfolio identifier]
+
+[Security grouping]
+[Security / investment name]
+[secondary identifying information]
+
+rather than inventing exact Schwab text.
+
+Settings control
+
+At the upper-right of the positions panel is:
+
+⚙ Settings
+
+The gear is a relatively small dark-grey outline icon, approximately 18–20 px.
+
+Settings is approximately:
+
+font-size: 14px;
+font-weight: 400;
+color: #555;
+
+The whole control sits about 25 px from the right boundary and roughly 24 px from the top.
+
+It isn't inside a button.
+
+It's simply an icon and text on the white background.
+
+Main positions table
+
+The table is where the interface becomes considerably denser.
+
+The left portion is devoted to investment/security identification, while the numeric columns begin farther to the right.
+
+Visible column headings include approximately:
+
+Quantity
+Price
+% Price Change
+Market Value
+Day Change
+Cost Basis
+Gain/Loss
+Ratings
+Reinvest?
+% of Acct
+
+Some headings have tiny teal information icons.
+
+Some also contain small square $ controls.
+
+The header is unusual because several columns use two-level labelling.
+
+For example:
+
+      %
+   [$]
+Price Change
+
+or:
+
+      %
+   [$] ⓘ
+Gain/Loss
+
+The $ control is a tiny outlined square, roughly 22 × 22 px, with:
+
+border: 1px solid #78AEB7;
+border-radius: 4px;
+color: #508A94;
+
+These appear to let the interface switch between percentage and dollar representations.
+
+Table header styling
+
+The table header is not a dark filled header.
+
+Instead it remains white and relies on thin vertical and horizontal dividers.
+
+Approximately:
+
+font-size: 12px;
+font-weight: 400;
+color: #536A70;
+
+The labels have a slightly blue-grey/teal cast.
+
+Header height is around 45–50 px.
+
+Column separators:
+
+border-left: 1px solid #E0E2E3;
+
+Bottom separator:
+
+border-bottom: 1px solid #D7D9DA;
+Investment rows
+
+The screenshot visibly contains two primary position rows.
+
+Values include:
+
+Quantity:      10
+Price:         $34.195
+Price Change:  -$1.315
+Market Value:  $341.90
+Day Change:    -$13.20
+Cost Basis:    $344.38
+Gain/Loss:     -$2.48
+Reinvest?:     No
+% of Acct:     4.66%
+
+and:
+
+Quantity:      145
+Price:         $47.945
+Price Change:  +$0.055
+Market Value:  $6,952.72
+Day Change:    -$2.90
+Cost Basis:    $6,955.62
+Gain/Loss:     -$2.90
+Reinvest?:     No
+% of Acct:     94.73%
+
+The exact security names on the left are blurred, so they shouldn't be guessed.
+
+Numeric table typography is compact:
+
+font-size: 12px;
+font-weight: 400;
+
+Regular values are grey/charcoal.
+
+Negative figures use muted burgundy/red.
+
+Positive values use subdued green.
+
+Something approximately like:
+
+.negative {
+  color: #9A4050;
+}
+
+.positive {
+  color: #4D805D;
+}
+
+.neutral {
+  color: #555;
+}
+
+The colours are deliberately low saturation.
+
+Table row sizing
+
+Because Condensed Table View is selected, rows are short.
+
+Approximately:
+
+height: 31px;
+padding: 5px 8px;
+
+There are no alternating zebra colours.
+
+Every row remains white.
+
+Separation comes from extremely subtle horizontal rules:
+
+border-bottom: 1px solid #ECEDEE;
+
+This is a major part of the visual language.
+
+Totals row
+
+Below the two securities is a bold subtotal/total row.
+
+Visible values include:
+
+$7,294.62
+-$16.10
+$7,300.00
+-$5.38
+99.39%
+
+The typography becomes approximately:
+
+font-size: 13px;
+font-weight: 700;
+
+Again, the negative values remain red.
+
+The total percentage appears at the far right.
+
+The row itself doesn't receive a dramatically different background; emphasis primarily comes from bold typography.
+
+Right-side row menus
+
+At the far right of individual security rows are tiny controls resembling:
+
+≡⌄
+
+or a three-horizontal-line/menu control with a small dropdown arrow.
+
+They're around 18–20 px and dark grey.
+
+These likely expose contextual actions for the position, but the screenshot doesn't show the menu open.
+
+Lower cash/other holding row
+
+Farther down is another row showing:
+
+$45.06
+-$6,955.62
+--
+--
+--
+0.61%
+
+The associated description on the left is blurred.
+
+This visually appears to represent a different holding/category than the securities above, but the exact label can't be recovered from this screenshot.
+
+The percentage 0.61% complements the 99.39% shown in the securities total.
+
+Typography system
+
+For a close visual approximation, use:
+
+font-family:
+  Arial,
+  "Helvetica Neue",
+  Helvetica,
+  sans-serif;
+
+The important characteristic is that this isn't a modern oversized fintech font.
+
+Use:
+
+Page/section heading      23–24px / 400
+Large financial values   20–21px / 400
+Settings                  14px / 400
+Summary labels            13px / 400
+Table headers             12px / 400
+Table values              12px / 400
+Totals                    13px / 700
+Percent subvalues         12px / 400
+
+Text is compact and highly functional.
+
+Spacing philosophy
+
+This dashboard uses two different spacing modes.
+
+The summary area is spacious, while the positions table is intentionally dense.
+
+A good spacing system would be:
+
+Page horizontal margin:       20px
+Major panel gap:              12px
+Panel heading padding:        14–20px
+Summary vertical padding:     22–28px
+Metric horizontal gap:        20–30px
+Table header padding:          6–10px
+Table cell horizontal pad:     7–10px
+Table cell vertical pad:       5–7px
+
+This contrast is important.
+
+Don't give every table cell 16–24 px padding or it will stop looking like this type of brokerage interface.
+
+Bottom market strip
+
+At the very bottom of the dashboard is a persistent market/quote bar separated from the page by a bright teal horizontal line approximately 3 px thick.
+
+On the left is a small white quote/symbol input followed by a blue/teal:
+
+Quote
+
+button.
+
+Next is very small explanatory text:
+
+Show Indices
+Symbol Lookup
+
+Then several market indexes are displayed horizontally:
+
+DJIA
+38,762.46  +191.43 (+0.50%)
+
+NASDAQ
+16,887.64  +58.97 (+0.35%)
+
+S&P 500
+5,297.55  +14.15 (+0.27%)
+
+Russell 2000
+2,009.40  -19.59 (-0.95%)
+
+Positive figures are muted green and negative figures muted red.
+
+Toward the right is:
+
+Time (ET)
+2:50:15 PM
+
+↻ Refresh
+
+Everything here is extremely compact—roughly 10–12 px typography.
+
+Right-side vertical tab
+
+There is also a narrow floating vertical control attached to the right edge of the content.
+
+The visible label is:
+
+SnapTicket®
+
+The tab is white with a thin grey border and subtle shadow.
+
+The text is rotated vertically.
+
+At its top is a small teal rectangular button containing a white up/down-style trading icon.
+
+The whole component is approximately 35–40 px wide.
+
+It looks like a collapsed quick-trading utility.

