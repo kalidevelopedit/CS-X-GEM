@@ -1,0 +1,1 @@
+- [Large connected-service uploads](workspace-file-uploads.md) — read workspace binaries with Node `fs` inside an impure call; avoid moving large payloads through shell callbacks.
